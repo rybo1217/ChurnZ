@@ -1,0 +1,117 @@
+﻿@page "/Calc"
+
+<PageTitle>Index</PageTitle>
+
+<h1>Calculator</h1>
+
+
+
+<div class="outter"> <!--outter shell of calculator -->
+
+    <form>
+
+  <div id="totalBox"  ><!--total box thats going to update-->
+    <label id='tot' > Total </label><!-- going to update-->
+    </div>
+<br>
+  
+  <input type="text" id="inputN" placeholder="0"><br><!--number input box-->
+<br>
+ 
+  <input type="button" id="add" value="+">
+  <input type="button" id="sub" value="-"><br>
+  <input type="button" id="div" value="/"> 
+  <input type="button" id="mul" value="x"><br>
+  <input type="button" id="reset" value="Reset"> 
+    </form> 
+
+
+
+</div>
+
+
+<style>
+h1{
+    display:flex;
+    justify-content:center;
+}
+
+.outter{/* "outter shell casing " of calculator*/
+    margin-top:2%;
+    margin-right:20%;
+    margin-left:20%;
+    background-color:gray;
+    height:800px;
+    border:5px;
+    border-style:solid;
+    border-radius:20px;
+}
+
+form{/* displaying everything as a form so events will be efficient*/
+    display:flexbox;
+    flex-direction:column;
+    text-align:center;
+    font-size:40px;
+}
+
+#totalBox{/* the box that displays total*/
+    background-color:lightcyan;
+    height:150px;
+    font-size:80px;
+    display flex;
+    justify-content:center;
+    margin-right:5%;
+    margin-left:5%;
+    margin-top:3%;
+    border:5px; 
+    border-style:solid; 
+    text-align:center;
+    border-color:black;
+    color:red;
+    
+}
+#inputN{/* inout box*/
+    border:5px; 
+    border-style:solid; 
+    text-align:center; 
+    width:315px; 
+    height:100px;
+    font-size:60px;
+    color:red;
+    border-color:black;
+
+}
+
+#add,#sub,#div,#mul{/* buttons for operations*/
+    width:150px;
+    height:120px;
+    background-color:lightgrey;
+     border:5px;
+    border-style:solid;
+    border-color:black;
+    color:red;
+    font-size:60px;
+    
+}
+
+#add:hover,#sub:hover,#div:hover,#mul:hover,#reset:hover{/* buttons for operations*/
+   
+    background-color:black;
+ 
+}
+
+#div,#mul{/*space atop the division and multiplicaiton*/
+    margin-top:3%;
+}
+#reset{
+    width:450px;
+    height:75px;
+    margin-top:3%;
+    background-color:lightgray;
+    border:5px;
+    border-style:solid;
+     border-color:black;
+    color:red;
+   
+}
+</style>    
