@@ -18,17 +18,38 @@
   <input type="text" id="inputN" placeholder="0"><br><!--number input box-->
 <br>
  
-  <input type="button" id="add" value="+">
-  <input type="button" id="sub" value="-"><br>
-  <input type="button" id="div" value="/"> 
-  <input type="button" id="mul" value="x"><br>
+  <input type="button" id="add" value="+" @onclick="addTot">
+  <input type="button" id="sub" value="-" @onclick="subTot"><br>
+  <input type="button" id="div" value="/" @onclick="divTot"> 
+  <input type="button" id="mul" value="x" @onclick="mulTot"><br>
   <input type="button" id="reset" value="Reset"> 
     </form> 
 
+<p role="status">Current amount: @totalAm</p> <!--DISPLAYS COUNTER AS TEST-->
 
 
 </div>
 
+@code {
+    private int totalAm = 0;//total amount
+
+    private void addTot()
+    {
+        totalAm++;//adding to total amount
+    }   
+    private void subTot()
+    {
+        totalAm++;//subtracting form total amount
+    }  
+     private void divTot()
+    {
+        totalAm++;//dividing total amount
+    }   
+    private void mulTot()
+    {
+        totalAm++;//multiplying total amount
+    }
+}
 
 <style>
 h1{
