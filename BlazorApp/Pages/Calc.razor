@@ -19,7 +19,7 @@
 <br>
  
   <input type="button" id="add" value="+" @onclick="totalO">
-  <input type="button" @bind="subtract" id="sub" value="-" @onclick="getSub"><br>
+  <input type="button" id="sub" value="-" @onclick="getSub"><br>
   <input type="button" id="div" value="/">
   <input type="button" id="mul" value="x"><br>
   <input type="button" id="reset" value="Reset"> 
@@ -38,9 +38,6 @@ public string input{ get; set;}//gets from form
 public string subtract{ get; set;}
 
 
-class CalculatorService{
-
-
 public void totalO()//gets total
 {
    string total = input;//tkaes input
@@ -48,15 +45,10 @@ public void totalO()//gets total
    Console.WriteLine(tottal+5);
 }
 
-public void getSub()
-{
-    string sub=subtract;
-    Console.WriteLine(sub);
-}
 
 
-    }
-}
+
+
 }
 
 
