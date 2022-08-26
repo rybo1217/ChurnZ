@@ -10,19 +10,21 @@
 
     <form method="post">
 
-  <div id="totalBox"  ><!--total box thats going to update-->
-    <label id='tot' > Total </label><!-- going to update-->
+  <div><!--total box thats going to update-->
+  <label>Total</label><br>
+    <input readonly @bind="@total" id='tot' > Total </input><!-- updates total-->
     </div>
-<br>
-  
-  <input type="text" @bind="input" id="inputN" placeholder="0"><br><!--number input box-->
-<br>
- 
-  <input type="button" id="add" value="+" @onclick="totalO">
-  <input type="button" id="sub" value="-" @onclick="getSub"><br>
-  <input type="button" id="div" value="/">
-  <input type="button" id="mul" value="x"><br>
-  <input type="button" id="reset" value="Reset"> 
+
+  <label>Input A Number</label><br>
+  <input type="text" @bind="@numberInput" id="inputN" placeholder="0"><br><!--number input boxes, binds input for atCode-->
+
+
+ <!-- onclick calls the methods-->
+  <input type="button" id="add" value="+" @onclick="addN">
+  <input type="button" id="sub"value="-" @onclick="subN"><br>
+  <input type="button" id="div" value="/" @onclick="divN"> 
+  <input type="button" id="mul" value="x" @onclick="multN"><br>
+  <input type="button" id="reset" value="Reset" @onclick="reset"> 
     </form> 
 
 
@@ -33,24 +35,40 @@
 
 
 @code {
+    
+    string numberInput;
+    string total;
 
-public string input{ get; set;}//gets from form
-public string subtract{ get; set;}
-
-
-public void totalO()//gets total
-{
-   string total = input;//tkaes input
-   int tottal=Int32.Parse(total);//change to int
-   Console.WriteLine(tottal+5);
+//methods that takes total and applies the arithmetic to the total
+    void addN()
+    {
+        total = (Convert.ToDouble(total) + Convert.ToDouble(numberInput)).ToString();
+    }
+    void subN()
+    {
+        total = (Convert.ToDouble(total) - Convert.ToDouble(numberInput)).ToString();
+   
+    }
+    void multN()
+    {
+        total = (Convert.ToDouble(total) * Convert.ToDouble(numberInput)).ToString();
+    }
+    void divN()
+    {
+        if (Convert.ToDouble(numberInput) != 0)
+        {
+            total = (Convert.ToDouble(total) / Convert.ToDouble(numberInput)).ToString();
+        }
+        else
+        {
+            total = "Cannot Divide by Zero";
+        }
+    }
+    void reset(){//resets the calculator
+        total=" ";
+        numberInput=" ";
+    }
 }
-
-
-
-
-
-}
-
 
 
 
@@ -65,7 +83,7 @@ h1{
     margin-right:20%;
     margin-left:20%;
     background-color:gray;
-    height:800px;
+    height:650px;
     border:5px;
     border-style:solid;
     border-radius:20px;
@@ -78,9 +96,9 @@ form{/* displaying everything as a form so events will be efficient*/
     font-size:40px;
 }
 
-#totalBox{/* the box that displays total*/
+#tot{/* the box that displays total*/
     background-color:lightcyan;
-    height:150px;
+    height:75px;
     font-size:80px;
     display flex;
     justify-content:center;
@@ -92,6 +110,7 @@ form{/* displaying everything as a form so events will be efficient*/
     text-align:center;
     border-color:black;
     color:red;
+    width:75%;
     
 }
 #inputN{/* inout box*/
@@ -99,16 +118,17 @@ form{/* displaying everything as a form so events will be efficient*/
     border-style:solid; 
     text-align:center; 
     width:315px; 
-    height:100px;
+    height:75px;
     font-size:60px;
     color:red;
     border-color:black;
+    margin-bottom:15px;
 
 }
 
 #add,#sub,#div,#mul{/* buttons for operations*/
     width:150px;
-    height:120px;
+    height:100px;
     background-color:lightgrey;
      border:5px;
     border-style:solid;
@@ -137,5 +157,9 @@ form{/* displaying everything as a form so events will be efficient*/
      border-color:black;
     color:red;
    
+}
+label{
+    color:red;
+    font-size:30px;
 }
 </style>    
