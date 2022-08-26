@@ -8,48 +8,59 @@
 
 <div class="outter"> <!--outter shell of calculator -->
 
-    <form>
+    <form method="post">
 
   <div id="totalBox"  ><!--total box thats going to update-->
     <label id='tot' > Total </label><!-- going to update-->
     </div>
 <br>
   
-  <input type="text" id="inputN" placeholder="0"><br><!--number input box-->
+  <input type="text" @bind="input" id="inputN" placeholder="0"><br><!--number input box-->
 <br>
  
-  <input type="button" id="add" value="+" @onclick="addTot">
-  <input type="button" id="sub" value="-" @onclick="subTot"><br>
-  <input type="button" id="div" value="/" @onclick="divTot"> 
-  <input type="button" id="mul" value="x" @onclick="mulTot"><br>
+  <input type="button" id="add" value="+" @onclick="totalO">
+  <input type="button" @bind="subtract" id="sub" value="-" @onclick="getSub"><br>
+  <input type="button" id="div" value="/">
+  <input type="button" id="mul" value="x"><br>
   <input type="button" id="reset" value="Reset"> 
     </form> 
 
-<p role="status">Current amount: @totalAm</p> <!--DISPLAYS COUNTER AS TEST-->
+
 
 
 </div>
 
-@code {
-    private int totalAm = 0;//total amount
 
-    private void addTot()
-    {
-        totalAm++;//adding to total amount
-    }   
-    private void subTot()
-    {
-        totalAm--;//subtracting form total amount
-    }  
-     private void divTot()
-    {
-        totalAm++;//dividing total amount
-    }   
-    private void mulTot()
-    {
-        totalAm++;//multiplying total amount
+
+@code {
+
+public string input{ get; set;}//gets from form
+public string subtract{ get; set;}
+
+
+class CalculatorService{
+
+
+public void totalO()//gets total
+{
+   string total = input;//tkaes input
+   int tottal=Int32.Parse(total);//change to int
+   Console.WriteLine(tottal+5);
+}
+
+public void getSub()
+{
+    string sub=subtract;
+    Console.WriteLine(sub);
+}
+
+
     }
 }
+}
+
+
+
 
 <style>
 h1{
