@@ -16,12 +16,12 @@
     </div>
 
   <label>Input A Number</label><br>
-  <input type="text" @bind="@numberInput" id="inputN" placeholder="0"><br><!--number input boxes, binds input for atCode-->
+  <input type="number" @bind="@numberInput" id="inputN" placeholder="0"><br><!--number input boxes, binds input for atCode-->
 
 
  <!-- onclick calls the methods-->
   <input type="button" id="add" value="+" @onclick="addN">
-  <input type="button" id="sub"value="-" @onclick="subN"><br>
+  <input type="button" id="sub" value="-" @onclick="subN"><br>
   <input type="button" id="div" value="/" @onclick="divN"> 
   <input type="button" id="mul" value="x" @onclick="multN"><br>
   <input type="button" id="reset" value="Reset" @onclick="reset"> 
@@ -34,15 +34,19 @@
 
 
 
-@code {// to allow c# members to component
+@functions {// to allow c# members to component
     
     string numberInput;
     string total;
 
 //methods that takes total and applies the arithmetic to the total
+
+
+
     void addN()
     {
         total = (Convert.ToDouble(total) + Convert.ToDouble(numberInput)).ToString();
+
     }
     void subN()
     {
@@ -62,11 +66,13 @@
         else
         {
             total = "Cannot Divide by Zero";
+           
         }
     }
+   
     void reset(){//resets the calculator
-        total=" ";
-        numberInput=" ";
+        total="0";
+        numberInput="0";
     }
 }
 
@@ -83,7 +89,7 @@ h1{
     margin-right:20%;
     margin-left:20%;
     background-color:gray;
-    height:650px;
+    height:750px;
     border:5px;
     border-style:solid;
     border-radius:20px;
@@ -98,7 +104,7 @@ form{/* displaying everything as a form so events will be efficient*/
 
 #tot{/* the box that displays total*/
     background-color:lightcyan;
-    height:75px;
+    height:125px;
     font-size:80px;
     display flex;
     justify-content:center;
@@ -118,7 +124,7 @@ form{/* displaying everything as a form so events will be efficient*/
     border-style:solid; 
     text-align:center; 
     width:315px; 
-    height:75px;
+    height:100px;
     font-size:60px;
     color:red;
     border-color:black;
